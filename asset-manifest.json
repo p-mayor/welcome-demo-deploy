@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/welcome-demo-deploy/static/css/main.d4f213fd.chunk.css",
+    "main.js": "/welcome-demo-deploy/static/js/main.4c1de599.chunk.js",
+    "main.js.map": "/welcome-demo-deploy/static/js/main.4c1de599.chunk.js.map",
+    "runtime-main.js": "/welcome-demo-deploy/static/js/runtime-main.b9e1c9a3.js",
+    "runtime-main.js.map": "/welcome-demo-deploy/static/js/runtime-main.b9e1c9a3.js.map",
+    "static/js/2.cbdb77f1.chunk.js": "/welcome-demo-deploy/static/js/2.cbdb77f1.chunk.js",
+    "static/js/2.cbdb77f1.chunk.js.map": "/welcome-demo-deploy/static/js/2.cbdb77f1.chunk.js.map",
+    "index.html": "/welcome-demo-deploy/index.html",
+    "precache-manifest.95b60706de4c542613a89f89b5be388d.js": "/welcome-demo-deploy/precache-manifest.95b60706de4c542613a89f89b5be388d.js",
+    "service-worker.js": "/welcome-demo-deploy/service-worker.js",
+    "static/css/main.d4f213fd.chunk.css.map": "/welcome-demo-deploy/static/css/main.d4f213fd.chunk.css.map",
+    "static/js/2.cbdb77f1.chunk.js.LICENSE.txt": "/welcome-demo-deploy/static/js/2.cbdb77f1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9e1c9a3.js",
+    "static/js/2.cbdb77f1.chunk.js",
+    "static/css/main.d4f213fd.chunk.css",
+    "static/js/main.4c1de599.chunk.js"
+  ]
+}
