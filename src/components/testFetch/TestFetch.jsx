@@ -11,32 +11,51 @@ class TestFetch extends React.Component {
 
     componentDidMount() {
         this.myTestFetch()
+        // console.log("hello from component did mount")
     }
 
     myTestFetch() {
         fetch("https://swapi.dev/api/people/" + this.state.currentNumber)
-            .then(res => res.json())
-            .then(characterJSON => {
-                console.log(characterJSON)
-                this.setState({ currentCharacter: characterJSON })
-            }) 
+            .then(response => {
+                // console.log(response)
+                return response.json()
+            }).then(characterData => {
+                console.log(characterData)
+                this.setState({ currentCharacter: characterData })
+            }).catch((error)=>{
+                console.log(error)
+            })
     }
 
     clickHandler = () => {
-        console.log("hello")
-        this.setState((prevState, props)=>{
-            return {currentNumber: prevState.currentNumber + 1}
+        // console.log("hello")
+        this.setState((prevState, props) => {
+            return { currentNumber: prevState.currentNumber + 1 }
         }, this.myTestFetch)
     }
 
     render() {
-        return (
+        let element = (
             <div className="TestFetch">
-                Name: {this.state.currentCharacter.name}
-                <br/> 
-                Height: {this.state.currentCharacter.height}
-                <button onClick={this.clickHandler}>Next Character</button>
+                LOADING...
             </div>
+        )
+        if (this.state.currentCharacter.films !== undefined) {
+            element = (
+                <div className="TestFetch">
+                    Name: {this.state.currentCharacter.name}
+                    <br />
+                    Height: {this.state.currentCharacter.height}
+                    <br />
+                    Films: {this.state.currentCharacter.films.map((filmURL, index)=>{
+                        return <div key={index}>{filmURL}</div>
+                    })}
+                    <button onClick={this.clickHandler}>Next Character</button>
+                </div>
+            )
+        }
+        return (
+            element
         )
     }
 }

@@ -1,46 +1,50 @@
-import React from "react"
-import "./App.css"
-import Gallery from "./components/dmgphotos/Gallery"
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.initialLatitude = "45.051142"
-        this.state = {
-            latitude: this.initialLatitude,
-            longitude: "23.236676",
-        }
-    }
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition(location => {
-            this.setState({
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-            })
-        })
-    }
-    render() {
-        if (this.state.latitude === this.initialLatitude) {
-            return (
-                <div className="App">
-                    Using coordinates for Tirga Jiu, Romania
-                    <Gallery
-                        latitude={this.state.latitude}
-                        longitude={this.state.longitude}
-                        searchTerm="dog"
-                    />
-                </div>
-            )
-        }
-        return (
-            <div className="App">
-                Using coordinates for your current location
-                <Gallery
-                    latitude={this.state.latitude}
-                    longitude={this.state.longitude}
-                    searchTerm="dog"
-                />
-            </div>
-        )
-    }
+import React from 'react';
+import { Route, Switch } from 'react-router-dom'
+
+import './App.css';
+import Welcome from './components/welcome/Welcome'
+import Contact from './components/contact/Contact'
+import Clock from './components/clock/Clock'
+import Navigation from './components/navigation/Navigation'
+import NoMatch from './components/noMatch/NoMatch'
+import TestFetch from './components/testFetch/TestFetch'
+import Jeopardy from './components/jeopardy/Jeopardy'
+
+function App() {
+  return (
+    <div className="App">
+      <Navigation />
+      <Switch>
+        <Route
+          path="/welcome/:name"
+          render={(props) => <Welcome {...props} name={props.match.params.name} />}
+        />
+        <Route
+          path='/clock'
+          component={Clock}
+        />
+        <Route
+          path='/testFetch'
+          component={TestFetch}
+        />
+        <Route
+          path='/contact'
+          component={Contact}
+        />
+         <Route
+          path='/jeopardy'
+          component={Jeopardy}
+        />
+        <Route
+          exact path='/'
+          render={(props) => <Welcome {...props} name="Davey Struss" />}
+        />
+        <Route
+          component={NoMatch}
+        />
+      </Switch>
+    </div>
+  );
 }
-export default App
+
+export default App;
